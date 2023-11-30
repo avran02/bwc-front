@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from "./components/Home"
+import Header from "./components/Header"
+import logo from './img/logo.jpg'
+import PersonalPage from "./components/PersonalPage"
+import BaristaPage from "./components/BaristaPage"
+import RegForm from "./components/RegForm"
+import LogForm from "./components/LogForm"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+    render() {
+        return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<RegForm />} />
+                <Route path="/login" element={<LogForm />} />
+                <Route path="/personal_page" element={<PersonalPage />} />
+                <Route path="/barista_page" element={<BaristaPage />} />
+            </Routes>
+        </Router>
+        );
+    };
+};
 
-export default App;
+export default App
